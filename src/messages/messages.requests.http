@@ -1,0 +1,17 @@
+### Get All Messages
+
+GET http://localhost:5000/messages
+
+
+### Get Message By Id
+GET http://localhost:5000/messages/:id
+
+
+### Create Message
+
+POST http://localhost:5000/messages
+Content-Type: application/json
+
+{
+  "text": "Hello World"
+}
