@@ -5,7 +5,13 @@ import { MessagesRepository } from './messages.repository';
 import { MessagesService } from './messages.service';
 @Module({
   controllers: [MessagesController],
-  providers: [MessagesService, MessagesRepository]
+  providers: [
+    MessagesService,
+    {
+      provide: 'MessagesRepository', // Custom token for MessagesRepository
+      useClass: MessagesRepository,
+    },
+  ]
 
 })
 export class MessagesModule { }

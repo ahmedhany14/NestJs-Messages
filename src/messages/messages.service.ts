@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable,Inject } from "@nestjs/common";
 import { IRepository } from "./interfaces/IMessageRepo";
 
-
+@Injectable()
 export class MessagesService {
 
     constructor(
-        private messageRepo: IRepository // Inject the repository
+        @Inject("MessagesRepository") private messageRepo: IRepository // Inject the repository
     ) { }
     // Get all messages
     async getAllMessages() {
